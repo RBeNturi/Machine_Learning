@@ -6,6 +6,7 @@ import seaborn as sns
 
 # Importing Warnings
 import warnings
+
 warnings.filterwarnings('ignore')
 
 # Importing Methods from sklearn
@@ -18,7 +19,7 @@ from sklearn.model_selection import train_test_split, cross_val_score
 # Reading the data
 data = pd.read_csv("data2.csv")
 data.head()
-data.shape
+# data.shape()
 
 print(data.corr())
 
@@ -56,7 +57,7 @@ reg_model = linear_model.LinearRegression()
 reg_model = LinearRegression().fit(X_train, y_train)
 
 # Printing the coefficients
-print('Intercept: ',reg_model.intercept_)
+print('Intercept: ', reg_model.intercept_)
 # Pairing the feature names with the coefficients
 list(zip(X, reg_model.coef_))
 
@@ -68,7 +69,6 @@ print("Prediction for test set: {}".format(y_pred))
 
 # Actual value and predicted value comparison
 reg_model_diff = pd.DataFrame({'Actual value': y_test, 'Predicted value': y_pred})
-reg_model_diff
 
 mae = metrics.mean_absolute_error(y_test, y_pred)
 mse = metrics.mean_squared_error(y_test, y_pred)
